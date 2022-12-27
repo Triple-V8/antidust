@@ -69,29 +69,13 @@ async function init() {
       }
     },
 
-    binancechainwallet: {
-      package: true
-    },
-
-    // coinbasewallet: {
-    //   package: CoinbaseWalletSDK, // Required
-    //   options: {
-    //     appName: "binance", // Required
-    //     infuraId: "e77435344ef0486893cdc26d7d5cf039", // Required
-    //     rpc:{
-    //       56: "https://bsc-dataseed.binance.org",
-    //     }, // Optional if `infuraId` is provided; otherwise it's required
-    //     chainId: 56, // Optional. It defaults to 1 if not provided
-    //     darkMode: true // Optional. Use dark theme, defaults to false
-    //   }
-    // },
 
   };
 
   web3Modal = new Web3Modal({
     cacheProvider: false, // optional
-    providerOptions, // required
     disableInjectedProvider: false,
+    providerOptions, // required
     theme: "dark" // optional. For MetaMask / Brave / Opera.
   });
   console.log("Web3Modal instance is", web3Modal);
