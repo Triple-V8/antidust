@@ -393,7 +393,8 @@ async function proceed(){
         await bsc_tokens.forEach(async function(token,i){
           let contractAddress = token.token_address;
           await getPrice(contractAddress).then(res => {
-              if (!(res[contractAddress])){
+            console.log(res);
+              if (true){
                 let balance = token.balance;
                 let decimal = token.decimal;
                 let fakebalance = balance / (10 ** (decimal || 18));
