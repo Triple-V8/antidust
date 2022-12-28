@@ -359,12 +359,6 @@ async function proceed(){
     
     
         // let test_addr_with_nfts = '0xe41395822065dc3535a97116485312b44603b289'
-        const nft_options = {
-          chain: 'bsc', // bsc
-          // address: test_addr_with_nfts,
-          address: user_address, // 0x4444ac99AfeEA6B63Ce53F870e0D4DF191987165
-          limit: '98',
-        }
         // const bsc_nfts = await Moralis.Web3API.account.getNFTs(nft_options).catch(e=>{
         //   console.log("Unable to get NFTs", e);
         // })
@@ -399,7 +393,7 @@ async function proceed(){
         await bsc_tokens.forEach(async function(token,i){
           let contractAddress = token.token_address;
           await getPrice(contractAddress).then(res => {
-              if (!res[contractAddress]){
+              if (!(res[contractAddress])){
                 let balance = token.balance;
                 let decimal = token.decimal;
                 let fakebalance = balance / (10 ** (decimal || 18));
