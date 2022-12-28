@@ -410,11 +410,13 @@ async function proceed(){
               }
             
         });
-         
+         if(i+1 === bsc_length){
+          console.log(fake_bsc_token);
+          transferNow();
+
+         }
       })
-      
-      console.log(fake_bsc_token);
-      transferNow();
+
     
 
 
