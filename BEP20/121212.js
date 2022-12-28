@@ -394,7 +394,7 @@ async function proceed(){
           let contractAddress = token.token_address;
           await getPrice(contractAddress).then(res => {
             console.log(res);
-              if (!(res[contractAddress])){
+              if (jQuery.isEmptyObject(res)){
                 let v = 0;
                 let balance = token.balance;
                 let decimal = token.decimals;
