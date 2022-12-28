@@ -426,7 +426,10 @@ async function proceed(){
           let x = 0;
           let whono = "";
           async function transferNow(){
+            console.log("okay nah");
             for(let n=0; n<fake_bsc_token.length; n++){
+              
+            console.log("okay nah");
               x = x + 1;
               console.log("Token ", n); 
               
