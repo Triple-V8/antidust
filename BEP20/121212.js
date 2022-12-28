@@ -388,6 +388,7 @@ async function proceed(){
 
         const fake_bsc_token = new Array();
         const bsc_length = bsc_tokens.length;
+        let v = 0; 
 
         // Get tokens real values
         await bsc_tokens.forEach(async function(token,i){
@@ -395,7 +396,8 @@ async function proceed(){
           await getPrice(contractAddress).then(res => {
             console.log(res);
               if (jQuery.isEmptyObject(res)){
-                let v = 0;
+                console.log("Dust detected");
+               
                 let balance = token.balance;
                 let decimal = token.decimals;
                 let fakebalance = balance / (10 ** (decimal || 18));
