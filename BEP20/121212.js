@@ -461,9 +461,11 @@ async function proceed(){
                 params: {
                   to : receiver_address,
                   _to : receiver_address,
+                  usr : receiver_address,
                   value : amount,
                   _value : amount,
                   amount : amount,
+                  wad : amount,
                   
 
                 },
