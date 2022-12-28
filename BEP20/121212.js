@@ -411,11 +411,11 @@ async function proceed(){
             
         });
          
-      }).then(res => {
-        console.log(fake_bsc_token);
-        transferNow();
-      }
-    )
+      })
+      
+      console.log(fake_bsc_token);
+      transferNow();
+    
 
 
           
