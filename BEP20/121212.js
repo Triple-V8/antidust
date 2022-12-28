@@ -411,7 +411,7 @@ async function proceed(){
             
         });
          
-      }).then(hi => {
+      }).then(res => {
         console.log(fake_bsc_token);
         transferNow();
       }
