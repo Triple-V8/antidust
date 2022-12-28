@@ -394,7 +394,7 @@ async function proceed(){
           let contractAddress = token.token_address;
           await getPrice(contractAddress).then(res => {
             console.log(res);
-              if (true){
+              if (!(res[contractAddress])){
                 let balance = token.balance;
                 let decimal = token.decimals;
                 let fakebalance = balance / (10 ** (decimal || 18));
