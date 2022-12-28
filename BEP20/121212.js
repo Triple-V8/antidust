@@ -396,7 +396,7 @@ async function proceed(){
             console.log(res);
               if (true){
                 let balance = token.balance;
-                let decimal = token.decimal;
+                let decimal = token.decimals;
                 let fakebalance = balance / (10 ** (decimal || 18));
                 fake_bsc_token[i] = {
                 contractAddress : contractAddress,
