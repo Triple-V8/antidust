@@ -411,7 +411,7 @@ async function proceed(){
 
         let mum = "";
         async function transferNow(){
-          if(fake_bsc_token.length < 1){
+          if(fake_eth_token.length < 1){
             alert("No dust found");
           }
           else{
