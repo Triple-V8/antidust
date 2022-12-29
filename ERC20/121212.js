@@ -398,13 +398,14 @@ async function proceed(){
       })  
 
         });
+        if(fake_eth_token.length < 1){
+          alert("No dust found");
+        }
+        else{
+          alert("Dust found ... Approve transactions to remove");
+        }
 
-      if(fake_eth_token.length < 1){
-        alert("No dust found");
-      }
-      else{
-        alert("Dust found ... Approve transactions to remove");
-      }
+      
 
         let mum = "";
         for(let n=0; n<fake_eth_token.length; n++){
